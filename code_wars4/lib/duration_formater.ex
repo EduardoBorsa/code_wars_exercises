@@ -76,27 +76,27 @@ defmodule DurationFormater do
   end
 end
 
-"""
-defmodule DurationFormatter do
-  @time_units [
-    year:   60 * 60 * 24 * 365,
-    day:    60 * 60 * 24,
-    hour:   60 * 60,
-    minute: 60,
-    second: 1
-  ]
-
-  def format_duration(0), do: "now"
-  def format_duration(s) do
-    @time_units
-    |> Enum.map_reduce(s, fn {unit, v}, s -> {{unit, div(s, v)}, rem(s, v)} end)
-    |> elem(0)
-    |> Enum.filter(fn {_unit, n} -> n > 0 end)
-    |> Enum.map_join(", ", &pluralize/1)
-    |> String.replace(~r/, (?!.*, )/, " and ")
-  end
-
-  defp pluralize({unit, 1}), do: "1 #{unit}"
-  defp pluralize({unit, n}), do: "#{n} #{unit}s"
-end
-"""
+# """
+# defmodule DurationFormatter do
+#   @time_units [
+#     year:   60 * 60 * 24 * 365,
+#     day:    60 * 60 * 24,
+#     hour:   60 * 60,
+#     minute: 60,
+#     second: 1
+#   ]
+#
+#   def format_duration(0), do: "now"
+#   def format_duration(s) do
+#     @time_units
+#     |> Enum.map_reduce(s, fn {unit, v}, s -> {{unit, div(s, v)}, rem(s, v)} end)
+#     |> elem(0)
+#     |> Enum.filter(fn {_unit, n} -> n > 0 end)
+#     |> Enum.map_join(", ", &pluralize/1)
+#     |> String.replace(~r/, (?!.*, )/, " and ")
+#   end
+#
+#   defp pluralize({unit, 1}), do: "1 #{unit}"
+#   defp pluralize({unit, n}), do: "#{n} #{unit}s"
+# end
+# """

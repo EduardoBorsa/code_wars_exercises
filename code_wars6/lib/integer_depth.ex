@@ -5,8 +5,6 @@ defmodule IntegerDepth do
   end
 
   def compute_depth(current_digits, times, num) do
-    IO.puts(inspect(current_digits))
-
     cond do
       MapSet.equal?(current_digits, @all_digits) == true ->
         times - 1
