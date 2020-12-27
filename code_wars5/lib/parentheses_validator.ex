@@ -40,4 +40,24 @@ defmodule ParenthesesValidator do
       n, acc -> {:cont, acc + n}
     end)
   end
+
+  def valid_parentheses(""), do: true
+
+  # def valid_parentheses(string) do
+  #   new_string =
+  #     string
+  #     |> String.replace(~r/[^()]+/, "")
+  #     |> String.replace("()", "")
+
+  #   if new_string == string, do: false, else: valid_parentheses(new_string)
+  # end
+
+  def valid_parentheses(string) do
+    string
+    |> Regex.compile()
+    |> do_valid_parentheses()
+  end
+
+  defp do_valid_parentheses({:ok, _}), do: true
+  defp do_valid_parentheses(_), do: false
 end
